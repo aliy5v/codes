@@ -1,0 +1,66 @@
+import tkinter as tk
+window = tk.Tk()
+window.title("Carculator")
+
+def add():
+    result.config(state='normal')
+    a=int(entry1.get())
+    b=int(entry2.get())
+    result.delete(0,tk.END)
+    result.insert(0,str(a+b))
+    result.config(state='disabled')
+
+
+def minus():
+    result.config(state='normal')
+    a = int(entry1.get())
+    b = int(entry2.get())
+    result.delete(0,tk.END)
+    result.insert(0,str(a - b))
+    result.config(state='disabled')
+
+def multp():
+    result.config(state='normal')
+    a = int(entry1.get())
+    b = int(entry2.get())
+    result.delete(0,tk.END)
+    result.insert(0,str(a * b))
+    result.config(state='disabled')
+
+def div():
+    result.config(state='normal')
+    a = float(entry1.get())
+    b = float(entry2.get())
+    result.delete(0,tk.END)
+    result.insert(0,str(a / b))
+    result.config(state='disabled')
+
+
+
+entry1= tk.Entry(window)
+entry1.grid(row=1,column=1)
+
+entry2= tk.Entry(window)
+entry2.grid(row=2,column=1)
+
+frame=tk.Frame(window)
+frame.grid(row=3,column=1)
+
+operation1= tk.Button(master=frame,text="+", command=add)
+operation1.grid(row=1,column=1)
+
+operation2= tk.Button(master=frame,text="-", command=minus)
+operation2.grid(row=1,column=2)
+
+operation3= tk.Button(master=frame,text="*", command=multp)
+operation3.grid(row=1,column=3)
+
+operation4= tk.Button(master=frame,text="/", command=div)
+operation4.grid(row=1,column=4)
+
+
+result=tk.Entry(window)
+result.config(state='disabled')
+result.grid(row=4,column=1)
+
+window.mainloop()
